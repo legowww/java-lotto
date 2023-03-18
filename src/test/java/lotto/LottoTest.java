@@ -1,9 +1,13 @@
 package lotto;
 
+import lotto.domain.Lotto;
+import lotto.domain.LottoRank;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.EnumMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -24,4 +28,20 @@ class LottoTest {
     }
 
     // 아래에 추가 테스트 작성 가능
+
+    @Test
+    void enumTest() {
+        LottoRank[] values = LottoRank.values();
+        for (LottoRank value : values) {
+            System.out.println("value = " + value);
+        }
+
+        Map<LottoRank, Integer> map = new EnumMap<>(LottoRank.class);
+        map.put(LottoRank.FIRST, 1);
+
+
+        Integer integer = map.get(LottoRank.FIRST);
+        System.out.println("integer = " + integer);
+
+    }
 }
